@@ -15,7 +15,6 @@ The example programs require the following libraries in a Python 3.x environment
 1) requests 
 2) json 
 3) pycurl 
-
 ```
 
 ## cURL Command Line Example:  
