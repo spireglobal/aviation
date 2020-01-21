@@ -29,7 +29,7 @@ curl --max-time 30 -H 'Authorization: spire-api-key='xxxxxxxxxxxxxxxxxxxxxxx' ht
 In the example above, you would provide a Spire Airsafe API token in order to access the datastream. In addition, 
 --max-time argument can be modified and is only there to show when the client disconnects from the server.  
 
-## JSON return data structure: 
+## JSON return data structure of a single 'target_update': 
 
 ```
 {
