@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "ac527ffd-3752-44f6-ae1a-a92b0ea2f7ac",
+		"name": "Aviation_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://storage.googleapis.com/spire-adsb-archive-pulls/production/kOUzKY63gP1TKpvS8qEiEzRNygk__CSV_0/000000000000.csv?Expires=1579908900&GoogleAccessId=adsb-historical-api%40ais-data-analysis.iam.gserviceaccount.com&Signature=mv60MlgBfCiWneSC%2FLpQWh1wANBCgOzGi1GyhdWEo1PIKP6zLYJB2R33ZO3rqomqFGs9fcL5UWoAn57crEv2NjPlhyjiKUXWSr%2FSOSmLXxljIxKl8X6SU0QFxPlAcjq1YessqJz%2FRJOXAzfHbHa7ZOMVShbn%2FnUaIjJbVAzOYithdqK36z90o6HVNfMsWUO1UK%2FrBlQCg5CSuUVJBpdZpUEbOXrL%2Bk3zb%2BEaVYR218B8gmebfVJGMjwMHsa24y4g5bzExbqJAG%2FJQ1gUzUCBMJa3hPDoI%2FHZAQh0u5ju1BdHdxHbgBpEA3PrnjjORi0td1qygFEeb8ynyZOEFIijsw%3D%3D",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://storage.googleapis.com/spire-adsb-archive-pulls/production/kOUzKY63gP1TKpvS8qEiEzRNygk__CSV_0/000000000000.csv?Expires=1579908900&GoogleAccessId=adsb-historical-api%40ais-data-analysis.iam.gserviceaccount.com&Signature=mv60MlgBfCiWneSC%2FLpQWh1wANBCgOzGi1GyhdWEo1PIKP6zLYJB2R33ZO3rqomqFGs9fcL5UWoAn57crEv2NjPlhyjiKUXWSr%2FSOSmLXxljIxKl8X6SU0QFxPlAcjq1YessqJz%2FRJOXAzfHbHa7ZOMVShbn%2FnUaIjJbVAzOYithdqK36z90o6HVNfMsWUO1UK%2FrBlQCg5CSuUVJBpdZpUEbOXrL%2Bk3zb%2BEaVYR218B8gmebfVJGMjwMHsa24y4g5bzExbqJAG%2FJQ1gUzUCBMJa3hPDoI%2FHZAQh0u5ju1BdHdxHbgBpEA3PrnjjORi0td1qygFEeb8ynyZOEFIijsw%3D%3D",
+					"protocol": "https",
+					"host": [
+						"storage",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"spire-adsb-archive-pulls",
+						"production",
+						"kOUzKY63gP1TKpvS8qEiEzRNygk__CSV_0",
+						"000000000000.csv"
+					],
+					"query": [
+						{
+							"key": "Expires",
+							"value": "1579908900"
+						},
+						{
+							"key": "GoogleAccessId",
+							"value": "adsb-historical-api%40ais-data-analysis.iam.gserviceaccount.com"
+						},
+						{
+							"key": "Signature",
+							"value": "mv60MlgBfCiWneSC%2FLpQWh1wANBCgOzGi1GyhdWEo1PIKP6zLYJB2R33ZO3rqomqFGs9fcL5UWoAn57crEv2NjPlhyjiKUXWSr%2FSOSmLXxljIxKl8X6SU0QFxPlAcjq1YessqJz%2FRJOXAzfHbHa7ZOMVShbn%2FnUaIjJbVAzOYithdqK36z90o6HVNfMsWUO1UK%2FrBlQCg5CSuUVJBpdZpUEbOXrL%2Bk3zb%2BEaVYR218B8gmebfVJGMjwMHsa24y4g5bzExbqJAG%2FJQ1gUzUCBMJa3hPDoI%2FHZAQh0u5ju1BdHdxHbgBpEA3PrnjjORi0td1qygFEeb8ynyZOEFIijsw%3D%3D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Aviation History Request PUT",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9SFqoGYzQe5eqdMHOHjMtR0EQuR8uKmR",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Bearer",
+						"type": "text",
+						"value": "https://api.airsafe.spire.com/archive/job/",
+						"disabled": true
+					},
+					{
+						"key": "Bearer",
+						"value": "ugmhyW5o5AGIZH63aLEIr3kKDibiDZ5d",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://api.airsafe.spire.com/archive/job?time_interval=2019-09-11T19:00:00Z/2019-09-11T19:30:00Z&latitude_between=-30,60&longitude_between=45,170",
+					"protocol": "https",
+					"host": [
+						"api",
+						"airsafe",
+						"spire",
+						"com"
+					],
+					"path": [
+						"archive",
+						"job"
+					],
+					"query": [
+						{
+							"key": "time_interval",
+							"value": "2019-09-11T19:00:00Z/2019-09-11T19:30:00Z"
+						},
+						{
+							"key": "latitude_between",
+							"value": "-30,60"
+						},
+						{
+							"key": "longitude_between",
+							"value": "45,170"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "WOLG5ikxuPqRl3K3OhALA18ZAVvoG2Qp",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "355d8c18-04b1-41e4-9cc3-4d7b9cce93d1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "fbb5e7b5-5b39-428b-893d-39fbbc841544",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
