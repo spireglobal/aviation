@@ -77,3 +77,9 @@ In the example above, the cURL query requests data for a one day period by submi
 
 Visit the following link to view a Postman Collections on a AirSafe Historical API call: https://www.getpostman.com/collections/b1049989ca7843b36bb4
 
+## Support 
+
+If you encounter any issue, or just want some questions answered, please contact our Customer Experience team at the following email: aviation@spire.com. 
+
+
+
