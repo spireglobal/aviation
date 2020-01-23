@@ -72,3 +72,9 @@ In the example above, the cURL query requests data for a one day period by submi
 }
 
 ```
+
+## Postman Collections 
+
+```
+https://www.getpostman.com/collections/b1049989ca7843b36bb4
+```
