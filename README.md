@@ -17,17 +17,29 @@ The example programs require the following libraries in a Python 3.x environment
 3) pycurl 
 ```
 
-## cURL Command Line Examples:  
+## cURL Command Line calling AirSafe datastream:  
 
 Sample syntax for examples under Terminal on macOS systems: 
 
 ```
-curl --max-time 30 -H 'Authorization: spire-api-key='xxxxxxxxxxxxxxxxxxxxxxx' https://api.airsafe.spire.com/stream
+ curl --max-time 30 -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx' https://api.airsafe.spire.com/stream
 
 ```
 
 In the example above, you would provide a Spire Airsafe API token in order to access the datastream. In addition, 
 --max-time argument can be modified and is only there to show when the client disconnects from the server.  
+
+
+## cURL Command Line calling AirSafe Historical API:
+
+```
+(1) curl -X PUT 'https://api.airsafe.spire.com/archive/job?time_interval=2019-08-12T00:00:00Z/2019-08-13T00:00:00Z' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'   -H 'Content-Length: 0'
+
+(2) curl 'https://api.airsafe.spire.com/archive/job?job_id=HZwSA__CSV_0' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'
+
+```
+
+In the example above, the cURL query requests data for a one day period by submitting a PUT request. The response from the PUT request (1) returns a job_id. Use the job_id as a query parameter in (2), in our example it is HZwSA__CSV_0. Trigger a GET request and when the job has completed a set of URLs with download URLs is returned from which the data can be retrieved. 
 
 ## JSON return data structure of a single 'target_update': 
 
