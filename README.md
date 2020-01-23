@@ -17,7 +17,7 @@ The example programs require the following libraries in a Python 3.x environment
 3) pycurl 
 ```
 
-## cURL Command Line Example:  
+## cURL Command Line Examples:  
 
 Sample syntax for examples under Terminal on macOS systems: 
 
