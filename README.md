@@ -43,6 +43,15 @@ In the example above, the cURL query requests data for a one day period by submi
 
 ## More Examples using cURL on the AirSafe Historical API:
 
+##### compress CSV output file using GZIP
+
+```
+(1) curl -X PUT 'https://api.airsafe.spire.com/archive/job?time_interval=2019-12-03T06:00:00Z/2019-12-03T06:30:00Z&compression=GZIP' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'   -H 'Content-Length: 0'
+
+(2) curl 'https://api.airsafe.spire.com/archive/job?job_id=6gHHS2AsFY__CSV_GZIP' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'
+
+```
+
 ##### target_updates by latitude and longitude:
 
 ```
