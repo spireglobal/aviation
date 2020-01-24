@@ -22,7 +22,8 @@ def call():
                 else:
                     r.close()
     except AttributeError:
-        print('**stream finished!**')
+        pass
 
 if __name__ == '__main__':
     call()
+    print('**stream finished!**')
