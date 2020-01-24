@@ -7,7 +7,7 @@ import time
 
 #Stream paramters and API endpoint arguments for call. 
 STREAM_URL = "https://test.airsafe.spire.com/stream"
-parameters = ['tyCQAR7dW6h89ului0Ng2dDLL16JMFxR', 10]
+parameters = ['spire-api-key', 10]
 headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(parameters[0])}
 
 #Will connect to stream for 10 seconds and will print out target_updates to the Terminal for client to view.
