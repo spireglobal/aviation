@@ -14,7 +14,7 @@ parameters = ['spire-api-token', 10]
 headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(parameters[0])}
 
 #Will connect to stream for 10 seconds and will print out target_updates to the Terminal for client to view.
-def call(timeout):
+def call(token, timeout):
     try:
         timeout = time.time() + timeout
         with requests.get(STREAM_URL, headers=headers, stream=True) as r:
@@ -28,5 +28,5 @@ def call(timeout):
         pass
 
 if __name__ == '__main__':
-    call(parameters[1)
+    call(parameters[0], parameters[1)
     print('**stream finished!**')
