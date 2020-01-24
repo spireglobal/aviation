@@ -1,5 +1,4 @@
-#This is an implementation of Spire's AirSafe datastream using the request module. The client will printout 
-# satellite and terrestrial target_updates in real-time as ingested into Spire's own data store. 
+#This is an implementation of Spire's AirSafe datastream using the request module. 
 
 import json
 import requests
