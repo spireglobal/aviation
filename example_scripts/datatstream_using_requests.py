@@ -5,8 +5,10 @@ import requests
 import time
 
 #Stream paramters and API endpoint arguments for call. 
+#Remember, you must replace spire-api-token with your own AirSafe Token for the request to occur successfully.
+
 STREAM_URL = "https://test.airsafe.spire.com/stream"
-parameters = ['spire-api-key', 10]
+parameters = ['spire-api-token', 10]
 headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(parameters[0])}
 
 #Will connect to stream for 10 seconds and will print out target_updates to the Terminal for client to view.
