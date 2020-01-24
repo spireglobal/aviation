@@ -43,7 +43,7 @@ In the example above, the cURL query requests data for a one day period by submi
 
 ## More Examples using cURL on the AirSafe Historical API:
 
-###### target_updates by latitude and longitude:
+##### target_updates by latitude and longitude:
 
 ```
 (1) curl -X PUT 'https://api.airsafe.spire.com/archive/job?time_interval=2019-09-11T19:00:00Z/2019-09-11T19:30:00Z&latitude_between=30,33&longitude_between=33,35' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'   -H 'Content-Length: 0'
@@ -51,7 +51,23 @@ In the example above, the cURL query requests data for a one day period by submi
 (2) curl 'https://api.airsafe.spire.com/archive/job?job_id=qz7ojz84icquENVQq4Kvd5VCtyw__CSV_0' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'
 
 ```
+##### target_updates by aircraft icao_address 
 
+```
+(1) curl -X PUT 'https://api.airsafe.spire.com/archive/job?time_interval=2019-12-03T06:00:00Z/2019-12-03T06:30:00Z&icao_address=8007C9' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'   -H 'Content-Length: 0'
+
+(2) curl 'https://api.airsafe.spire.com/archive/job?job_id=yhsjsi789dhmsENVBNS__CSV_0' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'
+
+```
+##### target_updates by Barometric Altitude 
+
+
+```
+(1) curl -X PUT 'https://api.airsafe.spire.com/archive/job?time_interval=2019-12-03T06:00:00Z/2019-12-03T06:30:00Z&altitude_baro_between=10000, 11000' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'   -H 'Content-Length: 0'
+
+(2) curl 'https://api.airsafe.spire.com/archive/job?job_id=qf4t_rQItmkeLMhAhX210sbLGlo__CSV_0' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'
+
+```
 
 ## JSON return data structure of a single 'target_update': 
 
