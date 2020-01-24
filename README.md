@@ -60,7 +60,7 @@ In the example above, the cURL query requests data for a one day period by submi
 (2) curl 'https://api.airsafe.spire.com/archive/job?job_id=qz7ojz84icquENVQq4Kvd5VCtyw__CSV_0' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'
 
 ```
-##### target_updates by aircraft icao_address 
+##### target_updates by aircraft icao_address: 
 
 ```
 (1) curl -X PUT 'https://api.airsafe.spire.com/archive/job?time_interval=2019-12-03T06:00:00Z/2019-12-03T06:30:00Z&icao_address=8007C9' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'   -H 'Content-Length: 0'
@@ -68,7 +68,7 @@ In the example above, the cURL query requests data for a one day period by submi
 (2) curl 'https://api.airsafe.spire.com/archive/job?job_id=yhsjsi789dhmsENVBNS__CSV_0' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'
 
 ```
-##### target_updates by Barometric Altitude 
+##### target_updates by Barometric Altitude: 
 
 
 ```
