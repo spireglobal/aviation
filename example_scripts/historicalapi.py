@@ -9,9 +9,10 @@ import json
 
 def putRequest():
 
-    #URL, Header and
+    #Remember, you must replace spire-api-token with your own AirSafe Token for the request to occur successfully.
+    
     url = 'https://api.airsafe.spire.com/archive/job?time_interval=2019-09-01T00:00:00Z/2019-09-01T00:02:00Z&out_format=CSV'
-    api_token =  'spire-api-token-key'
+    api_token =  'spire-api-token'
     headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(api_token)}
 
     #getting job_id for current call using put request
