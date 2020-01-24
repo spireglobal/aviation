@@ -41,6 +41,18 @@ In the example above, you would provide a Spire Airsafe API token in order to ac
 
 In the example above, the cURL query requests data for a one day period by submitting a PUT request. The response from the PUT request (1) returns a job_id. Use the job_id as a query parameter in (2), in our example it is HZwSA__CSV_0. Trigger a GET request and when the job has completed a set of URLs with download URLs is returned from which the data can be retrieved. 
 
+## More Examples using cURL on the AirSafe Historical API:
+
+###### target_updates by latitude and longitude:
+
+```
+(1) curl -X PUT 'https://api.airsafe.spire.com/archive/job?time_interval=2019-09-11T19:00:00Z/2019-09-11T19:30:00Z&latitude_between=30,33&longitude_between=33,35' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'   -H 'Content-Length: 0'
+
+(2) curl 'https://api.airsafe.spire.com/archive/job?job_id=qz7ojz84icquENVQq4Kvd5VCtyw__CSV_0' -H 'Authorization: spire-api-key=xxxxxxxxxxxxxxxxxxxxxxx'
+
+```
+
+
 ## JSON return data structure of a single 'target_update': 
 
 ```
@@ -76,6 +88,7 @@ In the example above, the cURL query requests data for a one day period by submi
 ## Postman Collections 
 
 Visit the following link to view a Postman Collections on a AirSafe Historical API call: https://www.getpostman.com/collections/b1049989ca7843b36bb4
+
 
 ## Support 
 
