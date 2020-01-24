@@ -4,6 +4,7 @@ import pycurl
 import json
 
 #Connecting to endpoint below with a 30 second timeout. 
+#Remember, you must replace spire-api-token with your own AirSafe Token for the request to occur successfully. 
 
 STREAM_PARAMETERS = ["https://api.airsafe.spire.com/targets", 30]
 
