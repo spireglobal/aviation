@@ -9,6 +9,7 @@ import json
 
 def putRequest():
 
+    # Build the URL, add headers and query parameters.
     #Remember, you must replace spire-api-token with your own AirSafe Token for the request to occur successfully.
     
     url = 'https://api.airsafe.spire.com/archive/job?time_interval=2019-09-01T00:00:00Z/2019-09-01T00:02:00Z&out_format=CSV'
