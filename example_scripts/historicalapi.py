@@ -1,9 +1,11 @@
+#This example script is to demonstrate a call to the AirSafe Historical API and will output a CSV file with the query 
+#paramaters defined in variable URL. 
+
 import requests
 import time
 import json
 
-#calling Spire historical api, we must do a put request and then a get request.
-#post call headers
+#calling Spire historical api, we must do a PUT request and then a GET request.
 
 def putRequest():
 
