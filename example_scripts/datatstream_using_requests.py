@@ -4,8 +4,10 @@ import json
 import requests
 import time
 
-#Stream paramters and API endpoint arguments for call. 
+#Stream parameters and API endpoint arguments for call. 
 #Remember, you must replace spire-api-token with your own AirSafe Token for the request to occur successfully.
+#In list paramaters, [1] index holds the timeout integer for a call and represents the connection time in seconds. 
+#Client can change this input variable for however many seconds they want. 
 
 STREAM_URL = "https://test.airsafe.spire.com/stream"
 parameters = ['spire-api-token', 10]
