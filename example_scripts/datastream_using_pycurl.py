@@ -19,5 +19,7 @@ class Client:
 
   def on_receive(self, data):
     print(data)
+ 
+if __name__ == '__main__':
+    client = Client()
 
-client = Client()
