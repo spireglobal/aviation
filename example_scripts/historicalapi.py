@@ -2,11 +2,8 @@ import requests
 import time
 import json
 
-
-
 #calling Spire historical api, we must do a put request and then a get request.
 #post call headers
-
 
 def putRequest():
 
