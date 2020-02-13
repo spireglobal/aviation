@@ -5,7 +5,7 @@ from xml.dom import minidom
 runtime = int(input('Enter program timeout, in seconds: '))
 
 #reads data from XML file
-class XML:
+class Xml:
 
     def __init__(self, xmlfile, tagname):
         self.xml = xmlfile
@@ -23,7 +23,7 @@ class XML:
 #class to access Spire Datastream API
 #inherits from XML
 
-class stream():
+class Stream():
 
     def __init__(self, url, token, timeout):
         self.url = url
@@ -58,9 +58,10 @@ class stream():
 
 if __name__ == '__main__':
     #instance of XML file reading
-    xml_arg = XML('ds.xml', 'item')
+    xml_arg = Xml('ds.xml', 'item')
     #instance of stream arguments
     xml_args_pass = xml_arg.xml_file()
+    stream_call = Stream(xml_args_pass[0], xml_args_pass[1], xml_args_pass[2])
+    #print statements for call
     print(xml_args_pass)
-    stream_call = stream(xml_args_pass[0], xml_args_pass[1], xml_args_pass[2])
     print(stream_call.call_stream())
