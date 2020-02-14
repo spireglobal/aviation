@@ -1,11 +1,6 @@
 import csv, requests, datetime, time, json, pandas as pd
 from xml.dom import minidom
 
-#program runtime as input
-runtime = int(input('Enter program timeout, in seconds: '))
-output_csv = input('Do you want a CSV output file? (Y/N) : ')
-pp_print_stream = input('Do you want to see target_updates printed to command line during call? (Y/N) : ')
-
 #global variable for getting filename created at callstream
 FILENAME = []
 JSONDict = []
@@ -54,7 +49,7 @@ class Stream():
 
             #calling datastream
             with requests.get(self.url, headers=headers, stream=True) as r:
-                with open('datastream:' + self.get_time() + '.json', 'w') as json_file:
+                with open('ds_json/' + 'ds:' + self.get_time() + '.json', 'w') as json_file:
 
                     #global declaration
                     global tu_count
@@ -66,6 +61,8 @@ class Stream():
                         if time.time() < timeout:
                             #msg is for further parsing, use loads
                             msg = json.loads(line)
+                            data = msg['target']
+                            JSONDict.append(data)
                             #dumps is for pretty print
                             json_pprint = json.dumps(msg, indent=2)
                             json_file.write(json_pprint)
@@ -82,9 +79,11 @@ class Stream():
 
                         else:
                             r.close()
-        except AttributeError:
+        except (AttributeError, KeyError):
             pass
-#
+
+#class for Dictionary object that holds our parsed JSON string objects**
+#inherit attributes from Stream
 class Csv:
 
     #attributes for class
@@ -93,7 +92,10 @@ class Csv:
 
     def json2csv(self):
         try:
-            with open('test' + '.csv', 'w', newline='') as csv_file:
+            time_now = datetime.datetime.now()
+            time_converted = time_now.strftime("%m-%d-%Y_%H-%M-%S_%p")
+
+            with open( 'ds_csv/' +'ds:' +  time_converted +'.csv', 'w', newline='') as csv_file:
                 fieldnames=['icao_address', 'timestamp', 'latitude', "longitude", "altitude_baro", "heading",
                 "ground_speed", "vertical_rate",'squawk_code' ,"on_ground", "callsign",  "tail_number", "collection_type",
                 "flight_number", "origin_airport_iata", "destination_airport_iata"]
@@ -107,7 +109,6 @@ class Csv:
 
 #inherit attribute from Csv
 class Statistics(Csv):
-
 
     #attributees for class
     def __init__(self, terrestrial, satellite, total):
@@ -131,6 +132,12 @@ class Statistics(Csv):
 
 
 if __name__ == '__main__':
+
+    #program runtime as input
+    runtime = int(input('Enter program timeout, in seconds: '))
+    output_csv = input('Do you want a CSV output file? (Y/N) : ')
+    pp_print_stream = input('Do you want to see target_updates printed to command line during call? (Y/N) : ')
+
     #instance of XML file reading
     xml_arg = Xml('ds.xml', 'item')
 
