@@ -1,4 +1,4 @@
-import csv, requests, datetime, time, json, pandas as pd
+import csv, requests, datetime, time, json
 from xml.dom import minidom
 
 #global variable for getting filename created at callstream
