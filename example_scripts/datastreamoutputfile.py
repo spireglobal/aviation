@@ -45,10 +45,11 @@ class Stream():
     #call datastream and output to new file
     def call_stream(self):
         try:
-
+            #paramaters for call
             headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(self.token)}
             timeout = time.time() + self.timeout
 
+            #calling datastream
             with requests.get(self.url, headers=headers, stream=True) as r:
                 with open('datastream:' + self.get_time() + '.json', 'w') as json_file:
                     global target_updates_count
@@ -60,7 +61,6 @@ class Stream():
                     #reading through JSON hashtables
                     for line in r.iter_lines(decode_unicode=True):
                         target_updates_count += 1
-
                         if time.time() < timeout:
                             msg = json.loads(line)
                             json_pprint = json.dumps(msg, indent=2)
@@ -88,6 +88,8 @@ if __name__ == '__main__':
     print(xml_args_pass)
     stream_call = Stream(xml_args_pass[0], xml_args_pass[1], xml_args_pass[2])
     print(stream_call.call_stream())
-    print('Target Updates: {}'.format(target_updates_count))
+    print('Total Target Updates: {}'.format(target_updates_count))
     print('Terrestrial Target Updates: {}'.format(terrestrial_count))
     print('Satellite Target Updates: {}'.format(satellite_count))
+    print('Stream Token Updates:', target_updates_count - (terrestrial_count + satellite_count))
+    print('Query Paramters: {}'.format(xml_args_pass))
