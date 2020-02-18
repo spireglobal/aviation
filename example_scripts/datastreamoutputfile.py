@@ -1,4 +1,4 @@
-import csv, requests, datetime, time, json, pandas as pd
+import csv, requests, datetime, time, json
 from xml.dom import minidom
 
 #reads data from XML file
@@ -52,15 +52,17 @@ class Stream():
                     for line in r.iter_lines(decode_unicode=True):
                         tu_count += 1
                         if time.time() < timeout:
+
                             #msg is for further parsing, use loads
                             msg = json.loads(line)
                             for item in msg:
                                 if item == 'stream_token':
-                                    print(item, msg[item])
-                                else:
-                                    'no token'
+                                    STREAM_TOKEN.append(msg)
+
+                            #returned to list for CSV use
                             data = msg['target']
                             JSONDict.append(data)
+
                             #dumps is for pretty print
                             json_pprint = json.dumps(msg, ensure_ascii=False, indent=4)
                             json_file.write(json_pprint)
@@ -70,9 +72,6 @@ class Stream():
                                 pass
                             else:
                                 print(json_pprint)
-
-                            #stream_token
-                            #looping through dict objects and counting useful statistics for target_updates
                         else:
                             r.close()
         except (AttributeError, KeyError, json.decoder.JSONDecodeError):
@@ -133,6 +132,9 @@ if __name__ == '__main__':
     FILENAME = []
     #list for JSON string lines
     JSONDict = []
+    #list for stream_token positions
+    STREAM_TOKEN = []
+    
     #counter of target_updates
     tu_count = 0
     terr_count = 0
