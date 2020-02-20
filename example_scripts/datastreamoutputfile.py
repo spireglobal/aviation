@@ -138,7 +138,7 @@ class Statistics(Csv):
                 if item == 'collection_type' and key[item] == 'terrestrial':
                     terr_count += 1
                 elif item == 'collection_type' and key[item] == 'satellite':
-                    sat_count +=1
+                    sat_count += 1
 
 
 if __name__ == '__main__':
