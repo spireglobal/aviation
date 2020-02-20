@@ -1,4 +1,4 @@
-import csv, requests, datetime, time, json
+import csv, requests, datetime, time, json, timeit
 from xml.dom import minidom
 
 #reads data from XML file
@@ -20,10 +20,11 @@ class Xml:
 #inherits from XML
 class Stream():
 
-    def __init__(self, url, token, timeout):
+    def __init__(self, url, token, timeout, file_handler):
         self.url = url
         self.token = token
         self.timeout = int(timeout)
+        self.file_handler = file_handler
 
     @staticmethod
     #will return time
@@ -37,12 +38,14 @@ class Stream():
         try:
             #paramaters for call
             headers = {'Content-Type': 'application/json','Authorization': 'Bearer {0}'.format(self.token)}
-            timeout = time.time() + self.timeout
+            #using start_time multiple times throughout method
+            start_time = time.time()
+            timeout = start_time + self.timeout
             s = requests.Session()
 
             #calling datastream
             with s.get(self.url, headers=headers, stream=True, timeout=None) as r:
-                with open('ds_json/' + 'ds:' + self.get_time() + '.json', 'w') as json_file:
+                with open('ds_json/' + 'ds:' + self.get_time() + '.json', self.file_handler) as json_file:
 
                     #global declaration
                     global tu_count
@@ -58,24 +61,32 @@ class Stream():
                             for item in msg:
                                 if item == 'stream_token':
                                     STREAM_TOKEN.append(msg)
+                                    print(STREAM_TOKEN)
 
                             #returned to list for CSV use
-                            data = msg['target']
-                            JSONDict.append(data)
+                            try:
+                                data = msg['target']
+                                JSONDict.append(data)
 
-                            #dumps is for pretty print
-                            json_pprint = json.dumps(msg, ensure_ascii=False, indent=4)
-                            json_file.write(json_pprint)
-                            if pp_print_stream == 'Y':
-                                print(json_pprint)
-                            elif pp_print_stream == 'N':
+                                #dumps is for pretty print
+                                json_pprint = json.dumps(msg, ensure_ascii=False, indent=4)
+                                json_file.write(json_pprint)
+                                if pp_print_stream == 'Y':
+                                    print(json_pprint)
+                                elif pp_print_stream == 'N':
+                                    pass
+                                else:
+                                    print(json_pprint)
+                            except (AttributeError, KeyError, TypeError) as e:
                                 pass
-                            else:
-                                print(json_pprint)
                         else:
                             r.close()
-        except (AttributeError, KeyError, json.decoder.JSONDecodeError):
+        except (AttributeError, KeyError, json.decoder.JSONDecodeError, TypeError) as e:
+            # print("Stream ran for: " % (time.time() - start_time))
+            print('exception handling error2:', e)
             pass
+
+
 
 #class for Dictionary object that holds our parsed JSON string objects**
 #inherit attributes from Stream
@@ -126,6 +137,7 @@ class Statistics(Csv):
                 elif item == 'collection_type' and key[item] == 'satellite':
                     sat_count +=1
 
+
 if __name__ == '__main__':
 
     #global variable for getting filename created at callstream
@@ -134,7 +146,9 @@ if __name__ == '__main__':
     JSONDict = []
     #list for stream_token positions
     STREAM_TOKEN = []
-    
+    #timeout record
+    timeout_record = []
+
     #counter of target_updates
     tu_count = 0
     terr_count = 0
@@ -142,6 +156,7 @@ if __name__ == '__main__':
 
     #program runtime as input
     runtime = int(input('Enter program timeout, in seconds: '))
+    timeout_record.append(runtime)
     output_csv = input('Do you want a CSV output file? (Y/N) : ')
     pp_print_stream = input('Do you want to see target_updates printed to command line during call? (Y/N) : ')
 
@@ -150,12 +165,16 @@ if __name__ == '__main__':
 
     #instance of stream arguments
     xml_args_pass = xml_arg.xml_file()
-    stream_call = Stream(xml_args_pass[0], xml_args_pass[1], runtime)
+    stream_call = Stream(xml_args_pass[0], xml_args_pass[1], runtime, 'w')
     stream_call.call_stream()
+
 
     #instance of Statistics
     statistics_call = Statistics(terr_count, sat_count, tu_count)
     statistics_call.statistics()
+
+    if len(STREAM_TOKEN) >= 1:
+        print(len(STREAM_TOKEN))
 
     #conditional printout for CSV file
     if output_csv == 'Y':
@@ -164,6 +183,8 @@ if __name__ == '__main__':
         csv_call.json2csv()
     elif output_csv == 'N':
         pass
+
+
 
     #recall stream using reconnection logic.
     # call_token_stream = Reconnection()
