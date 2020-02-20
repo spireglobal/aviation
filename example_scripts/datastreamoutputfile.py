@@ -1,6 +1,12 @@
 import csv, requests, datetime, time, json, timeit
 from xml.dom import minidom
 
+
+#counter of target_updates
+tu_count = 0
+terr_count = 0
+sat_count = 0
+
 #reads data from XML file
 class Xml:
 
@@ -77,16 +83,13 @@ class Stream():
                                     pass
                                 else:
                                     print(json_pprint)
-                            except (AttributeError, KeyError, TypeError) as e:
+                            except (AttributeError, KeyError, TypeError, ValueError) as e:
                                 pass
                         else:
                             r.close()
-        except (AttributeError, KeyError, json.decoder.JSONDecodeError, TypeError) as e:
-            # print("Stream ran for: " % (time.time() - start_time))
-            print('exception handling error2:', e)
+        except (AttributeError, KeyError, json.decoder.JSONDecodeError, TypeError, ValueError) as e:
+            timeout_record.append(time.time() - start_time)
             pass
-
-
 
 #class for Dictionary object that holds our parsed JSON string objects**
 #inherit attributes from Stream
@@ -149,11 +152,6 @@ if __name__ == '__main__':
     #timeout record
     timeout_record = []
 
-    #counter of target_updates
-    tu_count = 0
-    terr_count = 0
-    sat_count = 0
-
     #program runtime as input
     runtime = int(input('Enter program timeout, in seconds: '))
     timeout_record.append(runtime)
@@ -168,14 +166,9 @@ if __name__ == '__main__':
     stream_call = Stream(xml_args_pass[0], xml_args_pass[1], runtime, 'w')
     stream_call.call_stream()
 
-
     #instance of Statistics
     statistics_call = Statistics(terr_count, sat_count, tu_count)
     statistics_call.statistics()
-
-    if len(STREAM_TOKEN) >= 1:
-        print(len(STREAM_TOKEN))
-
     #conditional printout for CSV file
     if output_csv == 'Y':
         #instance of Csv
@@ -184,13 +177,8 @@ if __name__ == '__main__':
     elif output_csv == 'N':
         pass
 
-
-
-    #recall stream using reconnection logic.
-    # call_token_stream = Reconnection()
-    # call_token_stream.stream_token()
-
     #print statements for statistics
+    print('Stream ran for: {} seconds'.format(timeout_record[0]))
     print('Total Target Updates: {}'.format(tu_count))
     print('Terrestrial Target Updates: {}'.format(terr_count))
     print('Satellite Target Updates: {}'.format(sat_count))
