@@ -28,5 +28,5 @@ def call(token, timeout):
         pass
 
 if __name__ == '__main__':
-    call(parameters[0], parameters[1)
+    call(parameters[0], parameters[1])
     print('**stream finished!**')
