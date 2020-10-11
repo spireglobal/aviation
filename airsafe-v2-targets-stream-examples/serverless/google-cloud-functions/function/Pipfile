@@ -1,0 +1,17 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+responses = "*"
+pytest-cov = "*"
+testfixtures = "*"
+
+[packages]
+requests = "==2.24.0"
+google-cloud-storage = "*"
+
+[requires]
+python_version = "3.7"
