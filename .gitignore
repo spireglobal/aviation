@@ -1,0 +1,2 @@
+jupyter-notebooks/**/*.env
+.DS_Store
