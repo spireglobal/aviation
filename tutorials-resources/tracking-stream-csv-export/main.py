@@ -79,7 +79,7 @@ def listen_to_stream(timeout=None):
                 "longitude_between": "0.9008789062499999,3.8452148437499996",
                 "latitude_between": "48.122101028190805,49.5822260446217",
             },
-            headers={"Authorization": f"Bearer {os.environ['PRODUCT_TYPE']}"},
+            headers={"Authorization": f"Bearer {os.environ['AVIATION_TOKEN']}"},
             stream=True,
         )
     except RetryError:
@@ -90,7 +90,7 @@ def listen_to_stream(timeout=None):
         scheduler.add_job(
             export_to_csv_job,
             "cron",
-            minute="*/2",
+            minute="*/60",
             id="airsafe_stream_csv",
         )
         time_from = datetime.now()
@@ -121,7 +121,9 @@ def listen_to_stream(timeout=None):
 
 def connection_manager():
     try:
-        listen_to_stream(70)
+        # If you wish to listen for a specific time:
+        # listen_to_stream(70) will listen for 70 seconds
+        listen_to_stream()
     except MaxRetries:
         print("stream failed to connect multiple times, will retry in 30mn")
         time.sleep(60 * 30)

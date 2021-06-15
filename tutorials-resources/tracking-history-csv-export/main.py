@@ -16,7 +16,7 @@ if __name__ == "__main__":
             "start": "2021-05-21T12:00:00Z",
             "end": "2021-05-21T15:59:59Z",
         },
-        headers={"Authorization": f"Bearer {os.environ['PRODUCT_TYPE']}"},
+        headers={"Authorization": f"Bearer {os.environ['AVIATION_TOKEN']}"},
     )
 
     data_file = open("data.csv", "w")
