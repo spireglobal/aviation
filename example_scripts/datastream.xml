@@ -1,6 +1,0 @@
-<data>
-    <items>
-        <item name="API_URL">https://api.airsafe.spire.com/targets</item>
-        <item name="API_TOKEN"> spire-api-token</item>
-    </items>
-</data>

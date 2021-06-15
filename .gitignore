@@ -1,2 +1,6 @@
 jupyter-notebooks/**/*.env
 .DS_Store
+**/tracking-stream-kepler/node_modules
+**/tracking-stream-kepler/build
+**/tracking-stream-kepler/package-lock.json
+__pycache__

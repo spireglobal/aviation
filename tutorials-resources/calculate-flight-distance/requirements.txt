@@ -1,0 +1,16 @@
+certifi==2021.5.30
+chardet==4.0.0
+colorama==0.4.4
+geographiclib==1.50
+geopy==2.1.0
+idna==2.10
+numpy==1.20.3
+pandas==1.2.4
+python-dateutil==2.8.1
+pytz==2021.1
+PyYAML==5.4.1
+requests==2.25.1
+reverse-geocoder==1.5.1
+scipy==1.6.3
+six==1.16.0
+urllib3==1.26.5
