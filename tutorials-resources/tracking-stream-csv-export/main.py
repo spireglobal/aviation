@@ -62,6 +62,7 @@ def listen_to_stream(timeout=None):
 
     scheduler = BackgroundScheduler()
     retry_strategy = Retry(
+        # 10 retries before throwing exception
         total=10,
         backoff_factor=3,
         status_forcelist=[429, 500, 502, 503, 504, 422],
@@ -85,6 +86,9 @@ def listen_to_stream(timeout=None):
     except RetryError:
         log.warn(RetryError)
         raise MaxRetries()
+    if response.status_code == 401:
+        print("Unauthorized, token might be invalid")
+        sys.exit()
 
     try:
         scheduler.add_job(
@@ -129,7 +133,7 @@ def connection_manager():
         time.sleep(60 * 30)
         connection_manager()
     except ConnectionLost:
-        print("Connection was lost, retrying before notifying")
+        print("Connection was lost retrying now ...")
         connection_manager()
 
 
