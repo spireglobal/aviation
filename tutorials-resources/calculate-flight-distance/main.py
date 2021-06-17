@@ -48,17 +48,19 @@ if __name__ == "__main__":
         print(Fore.YELLOW + f"A flight has been found, loading flight path ...")
         print(
             Style.RESET_ALL + Fore.GREEN + f"Flight number:" + Style.RESET_ALL,
-            Back.RED + f"{flight_analysed.iloc[0]['flight_number']}",
+            Back.RED + f"{flight_analysed.iloc[0]['flight_number']}" + Style.RESET_ALL,
         )
         print(
             Style.RESET_ALL + Fore.GREEN + f"Flight from/to:" + Style.RESET_ALL,
             Back.RED
-            + f"{flight_analysed.iloc[0]['departure_airport_iata']}/{flight_analysed.iloc[0]['arrival_airport_iata']}",
+            + f"{flight_analysed.iloc[0]['departure_airport_iata']}/{flight_analysed.iloc[0]['arrival_airport_iata']}"
+            + Style.RESET_ALL,
         )
         print(
             Style.RESET_ALL + Fore.GREEN + f"Flight scheduled time:" + Style.RESET_ALL,
             Back.RED
-            + f"{flight_analysed.iloc[0]['departure_scheduled_time']} - {flight_analysed.iloc[0]['arrival_scheduled_time']}",
+            + f"{flight_analysed.iloc[0]['departure_scheduled_time']} - {flight_analysed.iloc[0]['arrival_scheduled_time']}"
+            + Style.RESET_ALL,
         )
         # Requesting flight path for the ICAO address during the specified flight period
         resp = requests.get(
@@ -80,7 +82,7 @@ if __name__ == "__main__":
 
         print(
             Style.RESET_ALL + Fore.GREEN + f"Datapoints found:" + Style.RESET_ALL,
-            Back.RED + f"{len(df.index)}",
+            Back.RED + f"{len(df.index)}" + Style.RESET_ALL,
         )
         print(Style.RESET_ALL)
         print(

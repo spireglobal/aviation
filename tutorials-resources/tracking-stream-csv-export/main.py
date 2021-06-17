@@ -94,7 +94,7 @@ def listen_to_stream(timeout=None):
         scheduler.add_job(
             export_to_csv_job,
             "cron",
-            minute="*/60",
+            minute="*/30",
             id="airsafe_stream_csv",
         )
         time_from = datetime.now()
@@ -138,7 +138,7 @@ def connection_manager():
 
 
 if __name__ == "__main__":
-    config = yaml.load(open("env.yaml"))
+    config = yaml.load(open("env.yaml"), Loader=yaml.FullLoader)
     os.environ.update(config)
 
     connection_manager()
