@@ -1,4 +1,5 @@
 import os
+import sys
 import yaml
 import requests
 import json
@@ -63,16 +64,20 @@ if __name__ == "__main__":
             + Style.RESET_ALL,
         )
         # Requesting flight path for the ICAO address during the specified flight period
-        resp = requests.get(
-            "https://api.airsafe.spire.com/v2/targets/history",
-            params={
-                "start": flight_analysed.iloc[0]["departure_scheduled_time"],
-                "end": flight_analysed.iloc[0]["arrival_scheduled_time"],
-                # Tracking the icao address of this aircraft only
-                "icao_address": flight_analysed.iloc[0]["icao_address"],
-            },
-            headers={"Authorization": f"Bearer {os.environ['AVIATION_TOKEN']}"},
-        )
+        try:
+            resp = requests.get(
+                "https://api.airsafe.spire.com/v2/targets/history",
+                params={
+                    "start": flight_analysed.iloc[0]["departure_scheduled_time"],
+                    "end": flight_analysed.iloc[0]["arrival_scheduled_time"],
+                    # Tracking the icao address of this aircraft only
+                    "icao_address": flight_analysed.iloc[0]["icao_address"],
+                },
+                headers={"Authorization": f"Bearer {os.environ['AVIATION_TOKEN']}"},
+            )
+        except Exception as e:
+            print("Failed to query API")
+            sys.exit()
 
         data = []
         for line in resp.iter_lines(decode_unicode=True):
