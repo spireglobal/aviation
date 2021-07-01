@@ -4,3 +4,9 @@ jupyter-notebooks/**/*.env
 **/tracking-stream-kepler/build
 **/tracking-stream-kepler/package-lock.json
 __pycache__
+**/java-calculate-flight-distance/target
+**/java-calculate-flight-distance/atlas
+**/java-calculate-flight-distance/.vscode
+**/java-calculate-flight-distance/.settings
+**/java-calculate-flight-distance/.project
+**/java-calculate-flight-distance/.classpath
