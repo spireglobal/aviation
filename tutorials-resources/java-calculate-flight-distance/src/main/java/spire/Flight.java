@@ -20,7 +20,7 @@ public class Flight
     private JSONObject targetUpdate;
     
     public Flight(Optional<String> targetUpdateString) {
-        this.targetUpdate = new JSONObject((String)targetUpdateString.get()).getJSONObject("target");
+        this.targetUpdate = new JSONObject(targetUpdateString.get()).getJSONObject("target");
     }
     
     public ArrayList<JSONObject> getFlightData() throws IOException, InterruptedException, URISyntaxException {
@@ -41,6 +41,7 @@ public class Flight
         return this.flightPath = flightPath;
     }
     
+    // Please head to https://www.geodatasource.com/developers/java to get details about how to calculate distance between coordinates
     public double calculateFlightDistance() {
         ListIterator<JSONObject> it = this.flightPath.listIterator();
         double totalDist = 0.0;
