@@ -5,13 +5,13 @@
 This repository contains multiple examples and tutorial resources as to how to use Spire Aviation APIs.
 
 For reference, you will find tutorials/examples for:
-- [Setup the Tracking Stream in AWS Lambda](https://aviation-docs.spire.com/docs/tutorials/aws-lambda-python)
-- [Setup the Tracking Stream in GCP Cloud Functions](https://aviation-docs.spire.com/docs/tutorials/gcp-python-cloud-functions)
-- [Setup the Tracking Stream in Docker](https://aviation-docs.spire.com/docs/tutorials/python-docker)
-- [Listen to the Tracking Stream endpoint and generate CSVs](https://aviation-docs.spire.com/docs/tutorials/stream-to-csv)
-- [Call the Tracking History endpoint and generate a CSV](https://aviation-docs.spire.com/docs/tutorials/history-to-csv)
-- [Plotting data using Jupyter Notebooks](https://aviation-docs.spire.com/docs/tutorials/plotting-python)
-- [Creating a web interface - KeplerGL](https://aviation-docs.spire.com/docs/tutorials/kepler-front-end-integration)
+- [Setup the Tracking Stream in AWS Lambda](https://aviation-docs.spire.com/tutorials/aws-lambda-python)
+- [Setup the Tracking Stream in GCP Cloud Functions](https://aviation-docs.spire.com/tutorials/gcp-python-cloud-functions)
+- [Setup the Tracking Stream in Docker](https://aviation-docs.spire.com/tutorials/python-docker)
+- [Listen to the Tracking Stream endpoint and generate CSVs](https://aviation-docs.spire.com/tutorials/stream-to-csv)
+- [Call the Tracking History endpoint and generate a CSV](https://aviation-docs.spire.com/tutorials/history-to-csv)
+- [Plotting data using Jupyter Notebooks](https://aviation-docs.spire.com/tutorials/plotting-python)
+- [Creating a web interface - KeplerGL](https://aviation-docs.spire.com/tutorials/kepler-front-end-integration)
 
 Please refer to our documentation [here](https://aviation-docs.spire.com) for more details. 
 
