@@ -10,3 +10,6 @@ __pycache__
 **/java-calculate-flight-distance/.settings
 **/java-calculate-flight-distance/.project
 **/java-calculate-flight-distance/.classpath
+**/tracking-history-mapbox/build
+**/tracking-history-mapbox/node_modules
+**/tracking-history-mapbox/package-lock.json
