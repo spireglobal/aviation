@@ -1,6 +1,6 @@
-## Using the AirSafe v2 on GCP Cloud Functions
+## Using the Aviation v2 on GCP Cloud Functions
 
-You can use AirSafe v2 to stream target updates using GCP Cloud Functions.
+You can use Aviation v2 to stream target updates using GCP Cloud Functions.
 
-The Examples section in our documentation at [https://developer.airsafe.spire.com](https://developer.airsafe.spire.com)
+The Examples section in our documentation at [https://aviation-docs.spire.com/tutorials/gcp-python-cloud-functions](https://aviation-docs.spire.com/tutorials/gcp-python-cloud-functions)
 includes a walk-through for this tutorial.
