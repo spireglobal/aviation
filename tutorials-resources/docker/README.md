@@ -1,6 +1,6 @@
-## Using the AirSafe v2 /stream API in Docker
+## Using the Aviation v2 /stream API in Docker
 
-You can use AirSafe v2 to stream target updates in Docker containers.
+You can use Aviation v2 to stream target updates in Docker containers.
 
-The Examples section in our documentation at [https://developer.airsafe.spire.com](https://developer.airsafe.spire.com)
+This url [https://aviation-docs.spire.com/tutorials/python-docker](https://aviation-docs.spire.com/tutorials/python-docker)
 includes a walk-through for this tutorial.
