@@ -1,6 +1,6 @@
-## Using the AirSafe v2 on AWS Lambda
+## Using the Aviation v2 on AWS Lambda
 
-You can use AirSafe v2 to stream target updates using AWS Lambda.
+You can use Aviation v2 to stream target updates using AWS Lambda.
 
-The Examples section in our documentation at [https://developer.airsafe.spire.com](https://developer.airsafe.spire.com)
+This url [https://aviation-docs.spire.com/tutorials/aws-lambda-python](https://aviation-docs.spire.com/tutorials/aws-lambda-python)
 includes a walk-through for this tutorial.
