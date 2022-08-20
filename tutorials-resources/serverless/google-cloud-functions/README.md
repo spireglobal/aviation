@@ -2,5 +2,5 @@
 
 You can use Aviation v2 to stream target updates using GCP Cloud Functions.
 
-The Examples section in our documentation at [https://aviation-docs.spire.com/tutorials/gcp-python-cloud-functions](https://aviation-docs.spire.com/tutorials/gcp-python-cloud-functions)
+This url [https://aviation-docs.spire.com/tutorials/gcp-python-cloud-functions](https://aviation-docs.spire.com/tutorials/gcp-python-cloud-functions)
 includes a walk-through for this tutorial.
