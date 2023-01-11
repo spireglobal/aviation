@@ -23,7 +23,7 @@ resource "aws_lambda_function" "airsafe-2-streamer" {
   function_name = "airsafe-2-streamer"
   role = aws_iam_role.streamer-execution-role.arn
 
-  runtime = "python3.6"
+  runtime = "python3.8"
   handler = "handler.handler"
   filename = "lambda.zip"
   timeout = 300

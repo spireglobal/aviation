@@ -51,7 +51,7 @@ function App() {
       `https://api.airsafe.spire.com/v2/targets/history?icao_address=${icao}&start=${start}&end=${end}`,
       {
         headers: {
-          Authorization: `Bearer rYWtOAD39fcF7V9JHaJ99n9RqMvSKyOo`,
+          Authorization: `Bearer <your_api_token>`,
         },
       }
     )
@@ -119,7 +119,7 @@ function App() {
           height="100%"
           mapStyle="mapbox://styles/mapbox/outdoors-v11"
           onViewportChange={setViewport}
-          mapboxApiAccessToken={
+          mapboxAccessToken={
             // Please get yourself a mapbox token 
             // https://docs.mapbox.com/help/getting-started/access-tokens/
             "your_mapbox_token"
