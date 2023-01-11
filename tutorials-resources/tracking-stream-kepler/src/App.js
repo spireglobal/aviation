@@ -117,7 +117,7 @@ function App() {
             {({ height, width }) => (
               <KeplerGl
                 id="kepler-gl-tutorial"
-                mapboxApiAccessToken={
+                mapboxAccessToken={
                   // Please get yourself a mapbox token 
                   // https://docs.mapbox.com/help/getting-started/access-tokens/
                   "your_mapbox_token"

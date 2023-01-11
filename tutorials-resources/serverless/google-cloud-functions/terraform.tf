@@ -63,7 +63,7 @@ resource "google_cloudfunctions_function" "function_streamer" {
   region = var.region
   timeout = var.function_timeout
   entry_point = "handler"
-  runtime = "python37"
+  runtime = "python38"
   trigger_http = true
   source_archive_bucket = google_storage_bucket.source_archives.name
   source_archive_object = google_storage_bucket_object.gcs_streamer_source.name
