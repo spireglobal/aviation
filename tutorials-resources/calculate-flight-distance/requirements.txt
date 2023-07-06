@@ -11,6 +11,6 @@ pytz==2021.1
 PyYAML==5.4.1
 requests==2.25.1
 reverse-geocoder==1.5.1
-scipy==1.6.3
+scipy==1.10.0
 six==1.16.0
 urllib3==1.26.5
