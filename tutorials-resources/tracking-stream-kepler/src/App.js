@@ -18,7 +18,7 @@ function App() {
   async function listenToStream() {
     dispatch(addDataToMap(initialConfig));
     fetch(
-      `https://api.airsafe.spire.com/v2/targets/stream?compression=none&late_filter=true`,
+      `https://api.airsafe.spire.com/v2/targets/stream`,
       {
         headers: {
           Authorization: `Bearer your_api_token`,
@@ -115,17 +115,17 @@ function App() {
         <div style={{ height: "100vh" }}>
           <AutoSizer>
             {({ height, width }) => (
-              <KeplerGl
-                id="kepler-gl-tutorial"
-                mapboxApiAccessToken={
-                  // Please get yourself a mapbox token 
-                  // https://docs.mapbox.com/help/getting-started/access-tokens/
-                  "your_mapbox_token"
-                }
-                width={width}
-                height={height}
-                theme={{ tooltipBg: "#1869b5", tooltipColor: "#ffffff" }}
-              />
+                  <KeplerGl
+                    id="kepler-gl-tutorial"
+                    mapboxApiAccessToken={
+                      // Please get yourself a mapbox token 
+                      // https://docs.mapbox.com/help/getting-started/access-tokens/
+                      "your_mapbox_token"
+                    }
+                    width={width}
+                    height={height}
+                    theme={{ tooltipBg: "#1869b5", tooltipColor: "#ffffff" }}
+                  />
             )}
           </AutoSizer>
         </div>
