@@ -75,7 +75,7 @@ def listen_to_stream(timeout=None):
 
     try:
         response = http.get(
-            "https://api.airsafe.spire.com/v2/targets/stream?compression=none",
+            "https://api.airsafe.spire.com/v2/targets/stream",
             params={
                 "longitude_between": "0.9008789062499999,3.8452148437499996",
                 "latitude_between": "48.122101028190805,49.5822260446217",
