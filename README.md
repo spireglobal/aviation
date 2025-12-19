@@ -18,5 +18,5 @@ Please refer to our documentation [here](https://aviation-docs.spire.com) for mo
 ## Live playgrounds
 
 You can also check our live playgrounds for **Tracking History** and **Tracking Stream**:
-- [Tracking Stream](https://replit.com/@QuentinSpire/Spire-Tracking-Stream-Playground)
-- [Tracking History](https://replit.com/@QuentinSpire/Spire-Tracking-History-Playground)
+- [Tracking Stream](https://replit.com/@aviation1/Spire-Tracking-Stream-Playground)
+- [Tracking History](https://replit.com/@aviation1/Spire-Tracking-History-Playground)
