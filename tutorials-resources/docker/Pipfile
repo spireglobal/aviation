@@ -11,7 +11,7 @@ testfixtures = "*"
 jupyterlab = "*"
 
 [packages]
-requests = "==2.24.0"
+requests = "==2.31.0"
 google-cloud-storage = "*"
 
 [requires]
