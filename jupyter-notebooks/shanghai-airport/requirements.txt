@@ -7,7 +7,7 @@ cycler==0.10.0
 decorator==4.4.2
 idna==2.10
 ipykernel==5.5.0
-ipython==7.21.0
+ipython==8.10.0
 ipython-genutils==0.2.0
 jedi==0.18.0
 jsonschema==3.2.0
